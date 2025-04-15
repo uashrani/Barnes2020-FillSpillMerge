@@ -61,7 +61,7 @@ int main(int argc, char **argv){
 
   //Label the ocean cells. This is a precondition for using
   //`GetDepressionHierarchy()`.
-  rd::BucketFillFromEdges<rd::Topology::D8>(topo, label, ocean_level, dh::OCEAN);
+  rd::BucketFillFromEdges<rd::Topology::D8, double, dh::dh_label_t>(topo, label, ocean_level, dh::OCEAN);	// typename in middle is topo's typename
 
   //Make NoData cells also ocean cells. Ocean has no water on it to begin with.
   #pragma omp parallel for
